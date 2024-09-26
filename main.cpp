@@ -73,17 +73,31 @@ double getArea(){
     return Area;
 }
 
+void setLength(int length){
+    length_ = length;
+}
+
+void setWidth(int width){
+    width_ = width;
+}
+
 private:
 int length_ = 0;
 int width_ = 0;
 };
 
+class Square : public Rectangle {
+public:
+Square(int side): Rectangle(side, side){}
+};
 
+//main starts here***********************
 int main(){
 
 Circle c1(1);
 RTriangle t1(3,4);
 Rectangle r1(1,2);
+Square s1(5);
 
 assert(c1.getArea()== 3.14 );
 assert(c1.getPerimeter()== 6.28 );
@@ -91,6 +105,8 @@ assert(t1.getArea()== 6);
 assert(t1.getPerimeter()== 12);
 assert(r1.getArea()== 2);
 assert(r1.getPerimeter()== 6);
+assert(s1.getArea() == 25);
+assert(s1.getPerimeter() == 20);
 cout << "\nAll passed";
 
 }
